@@ -5,12 +5,14 @@ import Home from './Home.jsx'
 import NavScrollExample from './NavScrollExample.jsx'
 import Bootstrp from './Bootstrp.jsx'
 import AutoLayoutExample from './AutoLayoutExample.jsx'
+import Test from './Test.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <NavScrollExample/>
     <AutoLayoutExample/>
+    <Test/>
     <App />
     <Home/>
   </StrictMode>,
