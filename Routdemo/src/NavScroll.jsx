@@ -9,7 +9,7 @@ export default function NavScroll() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="#"></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -21,6 +21,7 @@ export default function NavScroll() {
             <Link to= "/about" style={{marginRight: '10px'}}>About</Link>
             <Link to= "/service" style={{marginRight: '10px'}}>Service</Link>
             <Link to= "/contact" style={{marginRight: '10px'}}>Contact</Link>
+            <Link to= "/api" style={{marginRight: '10px'}}>API</Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
