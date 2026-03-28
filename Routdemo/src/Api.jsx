@@ -155,16 +155,14 @@ return (
       </Modal.Footer>
     </Modal>
 
-
-
     <table className="table table-dark">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>City</th>
-          <th>Mobile</th>
-          <th>Action</th>
+          <th class="table-primary">Id</th>
+          <th class="table-secondary">Name</th>
+          <th class="table-success">City</th>
+          <th class="table-info">Mobile</th>
+          <th class="table-warning">Action</th>
         </tr>
       </thead>
 
