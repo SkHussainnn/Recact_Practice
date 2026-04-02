@@ -4,8 +4,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function NavScroll() {
+  const location = useLocation();
+  //If on /login -> donot show navbar
+  if (location.pathname === '/') {
+    return null;
+  }
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
