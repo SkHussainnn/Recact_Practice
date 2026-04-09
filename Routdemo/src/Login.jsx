@@ -11,6 +11,7 @@ export default function Login({setIsLoggedIn}) {
     e.preventDefault();
     if (phone == 9827740560) {
       alert("Login successful");
+      localStorage.setItem("login", "true");
       setIsLoggedIn(true);
       navigate("/home");
     } else {

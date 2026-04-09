@@ -3,15 +3,22 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-export default function NavScroll() {
+export default function NavScroll({ setIsLoggedIn }) {
   const location = useLocation();
-  //If on /login -> donot show navbar
+  const navigate = useNavigate();
+
+  // If on login page -> do not show navbar
   if (location.pathname === '/') {
     return null;
   }
+
+  const handleLogout = () => {
+    localStorage.removeItem("login");
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -24,13 +31,14 @@ export default function NavScroll() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link to= "/" style={{marginRight: '10px'}}>Home</Link>
-            <Link to= "/about" style={{marginRight: '10px'}}>About</Link>
-            <Link to= "/service" style={{marginRight: '10px'}}>Service</Link>
-            <Link to= "/contact" style={{marginRight: '10px'}}>Contact</Link>
-            <Link to= "/api" style={{marginRight: '10px'}}>API</Link>
+            <Link to="/home" style={{ marginRight: '10px' }}>Home</Link>
+            <Link to="/about" style={{ marginRight: '10px' }}>About</Link>
+            <Link to="/service" style={{ marginRight: '10px' }}>Service</Link>
+            <Link to="/contact" style={{ marginRight: '10px' }}>Contact</Link>
+            <Link to="/api" style={{ marginRight: '10px' }}>API</Link>
           </Nav>
-          <Form className="d-flex">
+
+          <Form className="d-flex me-3">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -39,6 +47,21 @@ export default function NavScroll() {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
+
+          {/* Logout Button */}
+          <Button
+            onClick={handleLogout}
+            style={{
+              background: "linear-gradient(135deg, #1e40af, #3b82f6)",
+              border: "none",
+              borderRadius: "10px",
+              padding: "8px 18px",
+              fontWeight: "600",
+            }}
+          >
+            Logout
+          </Button>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

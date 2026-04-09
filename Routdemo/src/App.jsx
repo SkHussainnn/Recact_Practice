@@ -15,11 +15,12 @@ function ProtectedRoute({isLoggedIn, children}) {
 }
 
 export default  function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const [isLoggedIn, setIsLoggedIn] = useState(
+  localStorage.getItem("login") === "true");
   return (
   <>
   <Router>
-    <NavScroll />
+    <NavScroll isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route path='/' element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path='/home' element={<ProtectedRoute isLoggedIn={isLoggedIn}><Home /></ProtectedRoute>}/>
